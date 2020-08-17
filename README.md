@@ -84,8 +84,8 @@ Sample JSON:
 ```
 
 ## Wireframes
+![alt text](https://res.cloudinary.com/dk8xr0vts/image/upload/v1597649107/Project%201/project_1_wireframe_tlrkhf.png "Project 1 - Rick & Morty Versus the WORLD(s)...!?")
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
 
 ### MVP/PostMVP
 
@@ -95,40 +95,37 @@ As well the project incorporates responsive design so that it can be accessed vi
 
 #### MVP 
 
-- Access the Rick annd Morty API
+- Access the Rick and Morty API
 - Display an image of Rick or Morty, based on user input
 - Allow user to pick a world, or choose to randomly generate a world.
-- Allow user to trigger a randomly generated range of opponents from 1 to 5 from the selected world, excluding home planet Earth. 
+- Allow user to choose a randomly generated range of opponents from 1 to 5 from the selected world.
 - Avatars dodge mudballs after throwing mudball.
 - Display a title indicating the world where the battle is centered, which is any except earth
+- Display a picture of the winner.
 
 #### PostMVP  
 
-- Add Animations of mudballs
+- Add Animations of mudballs and fighters moving and dodging
 - Add voice sounds, of Rick, Morty, Opponents
 - Have background change according to world visited
 - Have the speed of the dodging action adjusted based onn how "muddy" opponent is.
 - Allow user to "throw" mudballs
-- Use local storage to save user favorites
+- Use local storage to save win/loss record for characters
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
-
 |  Day | Deliverable | Status
 |---|---| ---|
-|August 15-16| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|August 15-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 17   | Project Approval        | Incomplete
 |August 18   | Core Application Structure (HTML, CSS, etc.) | Incomplete
-|August 19   | Initial Clickable Model  | Incomplete
+|August 19   | JS Coding  | Incomplete
 |August 20   | MVP | Incomplete
 |August 21   | Presentations | Incomplete
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+![alt text](https://res.cloudinary.com/dk8xr0vts/image/upload/c_scale,w_614/v1597654103/Project%201/Priority_Matrix_uspkjf.svg "Priority Matrix")
 
 ## Timeframes
 

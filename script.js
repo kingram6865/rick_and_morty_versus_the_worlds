@@ -5,27 +5,32 @@ const universeWorlds = []
 
 
 async function populatePeople(info){ // Retrieve the data from the API
+	let allPeople = []
+
 	try {
 		let characters = await axios.get(info)
 			.then((res)=>{
-				console.log(res)
+				// console.log(res)
 				//res.data.next
-				console.log(res.data.Search)
-				if (res.data.info.next){
-					populatePeople(res.data.info.next)
-				}
-				
+				// console.log(res.data.Search)
 				for (let i=0; i < res.data.results.length; i++){
-					universePeople.push(res.data.results[i])
+					allPeople.push(res.data.results[i])
 					//console.log(res.data.results[i])
 				}
 
-				console.log(`${universePeople.length} charcters retrieved...`)
+				if (res.data.info.next){
+					allPeople.push(populatePeople(res.data.info.next))
+				}
+
+				return allPeople
 			})		
 	} catch (error) {
 		console.log(`Error: ${error}`)
+	} finally {
+		console.log(`Finally: ${allPeople.length} charcters retrieved...`)
 	}
 
+	console.log(`Function End: ${allPeople.length} charcters retrieved...`)
 }
 
 populatePeople(allCharacters)

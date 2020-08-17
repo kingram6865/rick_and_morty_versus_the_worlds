@@ -118,7 +118,7 @@ Sample JSON:
 |  Day | Deliverable | Status
 |---|---| ---|
 |August 15-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|August 17   | Project Approval        | Incomplete
+|August 17   | Project Approval        | Complete
 |August 18   | Core Application Structure (HTML, CSS, etc.) | Incomplete
 |August 19   | JS Coding  | Incomplete
 |August 20   | MVP | Incomplete

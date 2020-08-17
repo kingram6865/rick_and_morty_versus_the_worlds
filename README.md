@@ -86,18 +86,11 @@ Sample JSON:
 ## Wireframes
 ![alt text](https://res.cloudinary.com/dk8xr0vts/image/upload/v1597649107/Project%201/project_1_wireframe_tlrkhf.png "Project 1 - Rick & Morty Versus the WORLD(s)...!?")
 
-
-### MVP/PostMVP
-
-The Project implements HTML, CSS and JavaScript.
-
-As well the project incorporates responsive design so that it can be accessed via mobile, desktop, and tablet in a landscape orientation.
-
 #### MVP 
 
 - Access the Rick and Morty API
 - Display an image of Rick or Morty, based on user input
-- Allow user to pick a world, or choose to randomly generate a world.
+- Allow user to pick a world.
 - Allow user to choose a randomly generated range of opponents from 1 to 5 from the selected world.
 - Avatars dodge mudballs after throwing mudball.
 - Display a title indicating the world where the battle is centered, which is any except earth
@@ -111,6 +104,14 @@ As well the project incorporates responsive design so that it can be accessed vi
 - Have the speed of the dodging action adjusted based onn how "muddy" opponent is.
 - Allow user to "throw" mudballs
 - Use local storage to save win/loss record for characters
+
+#### Goals
+Monday - Develop the skeleton. Create the HTML and align all of the objects that will contain data.
+         Construct the responsive configuration
+Tuesday - Build all of the API calls and connect them with controls; Test the response; Connect images
+        to their appropriate containers
+Wednesday - Test again, make sure everythinng is working. Add in one refining feature
+Thursday - Prepare for Presentation
 
 ## Project Schedule
 
@@ -131,15 +132,15 @@ cd
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Build HTML Skeleton | H | 1 hr |  |  |
-| Retrieve image data not in the API| L | 1 hr
+| Build HTML Skeleton | H | 2 hr |  |  |
+| Retrieve image data not in the API| L | 2 hr
 | Organize Layout (CSS) | H | 3 hr  | ||
-| Organize user Input | M | 3 hrs|  |  |
-| Generate API Calls for game elements | H | 2 hrs|  |  |
-| Organize data placement for text data| H | 2 hrs | |
-| Organize data placement for image data| H | 2 hrs |  |
-| Create Algorithms for fight data      | H | 5 hrs |  |  |
-| Total                             | H | 19 hrs| 5hrs | 5hrs |
+| Organize user Input | M | 4 hrs|  |  |
+| Generate API Calls for game elements | H | 3 hrs|  |  |
+| Organize data placement for text data| H | 3 hrs | |
+| Organize data placement for image data| H | 3 hrs |  |
+| Create Algorithms for fight data      | H | 10 hrs |  |  |
+| Total                             | H | 30 hrs|  |  |
 
 ## Code Snippet
 

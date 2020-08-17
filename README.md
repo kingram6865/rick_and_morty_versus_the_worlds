@@ -7,7 +7,7 @@
 ## Project Description
 
 An animated mudfight between Rick & Morty and a denizen of a world they have visited.
-User input selects Rick or Morty and a random generator chooses from 3 -10 opponents.
+User input selects Rick or Morty and a random generator chooses from 1-5 opponents.
 They fling mud at each other. The muddiest person in 20 seconds, or the first person
 "mudded 4 times is out"
 
@@ -126,7 +126,7 @@ As well the project incorporates responsive design so that it can be accessed vi
 ## Priority Matrix
 
 ![alt text](https://res.cloudinary.com/dk8xr0vts/image/upload/c_scale,w_614/v1597654103/Project%201/Priority_Matrix_uspkjf.svg "Priority Matrix")
-
+cd 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |

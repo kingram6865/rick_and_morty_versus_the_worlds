@@ -1,0 +1,32 @@
+body {
+	display: flex;
+	flex-flow: column nowrap
+}
+
+header {
+	height: 500px;
+	/*width: auto;*/
+	/*max-height: 100%;*/
+	/*background-size: 100% 95%;*/
+	background-image: url("./images/rick_morty_header.jpg");
+	background-repeat: no-repeat;
+	/*background-size: contain;*/
+}
+
+.content {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.menu {
+	width: 15%;
+	height: auto;
+	background: #CDCDCD;
+}
+
+.play-area {
+	min-height: 
+	width: auto;
+}

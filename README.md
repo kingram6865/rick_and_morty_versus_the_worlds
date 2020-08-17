@@ -13,7 +13,7 @@ They fling mud at each other. The muddiest person in 20 seconds, or the first pe
 
 ## API and Data Sample
 
-I'm excited to be using the Rick and Morty API:
+I'm excited to use the Rick and Morty API, and a game seems like the best use.
 
 https://rickandmortyapi.com/documentation
 
@@ -106,12 +106,12 @@ Sample JSON:
 - Use local storage to save win/loss record for characters
 
 #### Goals
-Monday - Develop the skeleton. Create the HTML and align all of the objects that will contain data.
+- Monday - Develop the skeleton. Create the HTML and align all of the objects that will contain data.
          Construct the responsive configuration
-Tuesday - Build all of the API calls and connect them with controls; Test the response; Connect images
+- Tuesday - Build all of the API calls and connect them with controls; Test the response; Connect images
         to their appropriate containers
-Wednesday - Test again, make sure everythinng is working. Add in one refining feature
-Thursday - Prepare for Presentation
+- Wednesday - Test again, make sure everythinng is working. Add in one refining feature
+- Thursday - Prepare for Presentation
 
 ## Project Schedule
 
@@ -147,10 +147,8 @@ cd
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ 

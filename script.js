@@ -1,49 +1,47 @@
-const API='https://rickandmortyapi.com/api/'
-const allCharacters = "https://rickandmortyapi.com/api/character/"
-const universePeople = [] // All the available characters in the Rick and Morty universe
-const universeWorlds = []
-const chooseRickMorty = document.createElement('select')
+const API='https://rickandmortyapi.com/api/';
+const allCharacters = "https://rickandmortyapi.com/api/character/";
+const universePeople = []; // All the available characters in the Rick and Morty universe
+const universeWorlds = [];
+const chooseRickMorty = document.createElement('select');
+const denizens = document.createElement('ul');
+const section = document.querySelector('section');
+
+const morty = "https://rickandmortyapi.com/api/character/"
+
+
+
+
+
+
 
 async function populatePeople(info){ // Retrieve the data from the API
 	let allPeople = []
-
 	try {
-		let characters = await axios.get(info)
-			.then((res)=>{
-				// console.log(res)
-				//res.data.next
-				// console.log(res.data.Search)
-				for (let i=0; i < res.data.results.length; i++){
-					allPeople.push(res.data.results[i])
-					console.log(allPeople.length)
-					//console.log(res.data.results[i])
-				}
-
-				if (res.data.info.next){
-					allPeople.push(populatePeople(res.data.info.next))
-				}
-
-			})
-
-			return characters		
+		while (info){
+			let {data} = await axios.get(info);
+			for (let content of data.results){ 
+				const item = document.createElement('li');
+				const image = document.createElement('img');
+				image.src = content.image;
+				item.append(image);
+				item.append(`${content.name}`);
+				denizens.append(item);
+			}
+			allPeople.push(...data.results);
+			info = data.info.next;
+		}
 	} catch (error) {
-		console.log(`Error: ${error}`)
+		console.log(`Error: ${error}`);
+	} finally {
+		section.append(denizens);
+		return allPeople;
 	}
-	// } finally {
-	// 	// console.log(`Finally: ${allPeople.length} charcters retrieved...`)
-	// }
-
-	// console.log(`Function End: ${allPeople.length} charcters retrieved...`)
-	console.log(characters)
 }
 
 populatePeople(allCharacters)
-
-
-function updateUniverseList(data){
-	universePeople.push(data)
-	console.log(universePeople.length)
-}
-
+	.then(data => {
+		console.log(`Final data length: ${data.length}`)
+		universePeople.push(...data)
+	});
 
 async function apiCall(url, options){}

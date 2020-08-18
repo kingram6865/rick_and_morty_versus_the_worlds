@@ -4,32 +4,23 @@ const allLocations = "https://rickandmortyapi.com/api/location/"
 const universePeople = []; // All the available characters in the Rick and Morty universe
 const universeLocations = [];
 const chooseRickMorty = document.createElement('select');
-const denizens = document.createElement('ul');
-const locations = document.createElement('ul');
 const section = document.querySelector('section');
 
-const morty = "https://rickandmortyapi.com/api/character/"
 
-async function getCharacterData(input){
-	const character = {}
-	try {
-		let {data} = await axios.get(input)
-	}
-}
 
 async function populatePeople(info){ // Retrieve the data from the API
 	let allPeople = []
 	try {
 		while (info){
 			let {data} = await axios.get(info);
-			// for (let content of data.results){ 
-			// 	const item = document.createElement('li');
-			// 	const image = document.createElement('img');
-			// 	image.src = content.image;
-			// 	item.append(image);
-			// 	item.append(`${content.name}`);
-			// 	denizens.append(item);
-			// }
+			for (let content of data.results){ 
+				const item = document.createElement('li');
+				const image = document.createElement('img');
+				image.src = content.image;
+				item.append(image);
+				item.append(`${content.name}`);
+				denizens.append(item);
+			}
 			allPeople.push(...data.results);
 			info = data.info.next;
 		}
@@ -53,7 +44,7 @@ async function populateLocations(info){
 	} catch (error) {
 		console.log(`Error: ${error}`)
 	} finally {
-		section.append(locations)
+		//section.append(locations)
 		return allLocations
 	}
 }
@@ -65,35 +56,38 @@ populateLocations(allLocations)
 		const fightLocation = generateLocation(universeLocations)
 		//console.log(JSON.stringify(fightLocation))
 		const opponent = selectOpponent(fightLocation)
-		createAvatar(opponent.image)
+		console.log(JSON.stringify(opponent,null,2))
+		// createAvatar(opponent)
 	})
 
 
-// populatePeople(allCharacters)
-// 	.then(data => {
-// 		console.log(`Total # of Inhabitants in Multiverse: ${data.length}`)
-// 		universePeople.push(...data)
-// 	});
+populatePeople(allCharacters)
+	.then(data => {
+		console.log(`Total # of Inhabitants in Multiverse: ${data.length}`)
+		universePeople.push(...data)
+		createElement('div')
+
+	});
 
 async function apiCall(url, options){}
 
-function generateFixtures(){
+function generateFixtures(destination1, destination2){
 	/*
 	
-	- Create a radio selector for 'Rick' or 'Morty'
-	- Create a slider or spinner to choose number of opponents up to 5
-	- Create a button that says "Begin Slinging Mud!"
-	- Set main play box to show indicators of location
-	- Create locations for hero and opponent avatars 
+	- Create a select element to choose a character to view
+	- Create left and right arrows for navigating between dossiers.
 
 	*/
 
-	const heroSelector = createElement('radio')
-	const opponentSelector = createElement('spinner')
+	const characterSelector = document.createElement('select')
+	const displayBox = document.createElement('div')
+	const leftButton = document.createElement('button')
+	const rightButton = document.createElement('button')
 
-	// This button submits the user input and triggers the random selection
-	// of location and opponents based on location
-	const locationSelector = createElement('button')
+	characterSelector.className = 'characters'
+	displayBox.className = 'chacracter-info'
+	leftButton.className = 'left'
+	rightButton.className = 'right'
 
 }
 
@@ -107,34 +101,22 @@ function generateLocation(locationPool){
 
 function selectOpponent(location){
 	const opponent = Math.floor(Math.random() * location.residents.length)
-	console.log(location.residents[opponent])
+	//console.log(location.residents[opponent])
 	return location.residents[opponent]
-}
-
-function throwMud(){
-
-}
-
-function registerHit(){
-
-}
-
-function countHits(){
-	
 }
 
 function createAvatar(ref){
 	const charInfo = getCharacter(ref)
 	const avatar = document.createElement('div')
-	avatar.style.background = url(charInfo.image)
+	avatar.style.background = `url('${charInfo.image}')`
 	section.append(avatar)
 }
 
-async function getCharacter(id){
+async function getCharacter(url){
 	let characterData = {}
 	
 	try {
-		let {data} = await axios.get(id)
+		let {data} = await axios.get(url)
 		// console.log(JSON.stringify(characterData))
 		characterData = data
 	} catch (error) {

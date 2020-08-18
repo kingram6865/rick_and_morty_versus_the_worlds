@@ -5,9 +5,17 @@ const universePeople = []; // All the available characters in the Rick and Morty
 const universeLocations = [];
 const chooseRickMorty = document.createElement('select');
 const denizens = document.createElement('ul');
+const locations = document.createElement('ul');
 const section = document.querySelector('section');
 
 const morty = "https://rickandmortyapi.com/api/character/"
+
+async function getCharacterData(input){
+	const character = {}
+	try {
+		let {data} = await axios.get(input)
+	}
+}
 
 async function populatePeople(info){ // Retrieve the data from the API
 	let allPeople = []
@@ -35,6 +43,7 @@ async function populatePeople(info){ // Retrieve the data from the API
 
 async function populateLocations(info){
 	let allLocations = []
+
 	try {
 		while (info){
 			let {data} = await axios.get(info)
@@ -44,6 +53,7 @@ async function populateLocations(info){
 	} catch (error) {
 		console.log(`Error: ${error}`)
 	} finally {
+		section.append(locations)
 		return allLocations
 	}
 }
@@ -51,18 +61,19 @@ async function populateLocations(info){
 populateLocations(allLocations)
 	.then(data => {
 		console.log(`Total # of Locations in Multiverse: ${data.length}`)
-		// for (let i = 0; i < data.length; i++){
-		// 	console.log(`Location Name: ${data[i].name}, Dimension: ${data[i].dimension}`)
-		// }
 		universeLocations.push(...data)
+		const fightLocation = generateLocation(universeLocations)
+		//console.log(JSON.stringify(fightLocation))
+		const opponent = selectOpponent(fightLocation)
+		createAvatar(opponent.image)
 	})
 
 
-populatePeople(allCharacters)
-	.then(data => {
-		console.log(`Total # of Inhabitants in Multiverse: ${data.length}`)
-		universePeople.push(...data)
-	});
+// populatePeople(allCharacters)
+// 	.then(data => {
+// 		console.log(`Total # of Inhabitants in Multiverse: ${data.length}`)
+// 		universePeople.push(...data)
+// 	});
 
 async function apiCall(url, options){}
 
@@ -87,12 +98,17 @@ function generateFixtures(){
 }
 
 
-function generateLocation(){
-
+function generateLocation(locationPool){
+	const seed = locationPool.length
+	const fightLocation = Math.floor((Math.random() * seed))
+	//console.log(locationPool[fightLocation])
+	return locationPool[fightLocation]
 }
 
-function selectOpponents(location, numOpponents){
-
+function selectOpponent(location){
+	const opponent = Math.floor(Math.random() * location.residents.length)
+	console.log(location.residents[opponent])
+	return location.residents[opponent]
 }
 
 function throwMud(){
@@ -106,3 +122,26 @@ function registerHit(){
 function countHits(){
 	
 }
+
+function createAvatar(ref){
+	const charInfo = getCharacter(ref)
+	const avatar = document.createElement('div')
+	avatar.style.background = url(charInfo.image)
+	section.append(avatar)
+}
+
+async function getCharacter(id){
+	let characterData = {}
+	
+	try {
+		let {data} = await axios.get(id)
+		// console.log(JSON.stringify(characterData))
+		characterData = data
+	} catch (error) {
+		console.log(`Error: ${error}`)
+	} finally {
+		return characterData
+	}
+}
+
+// createAvatar("https://rickandmortyapi.com/api/location/8")

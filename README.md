@@ -152,4 +152,5 @@ Use this section to include a brief code snippet of functionality that you are p
 
 ## Change Log
  - There are too many choices for World (location) so the user interface is a radio selector to choose Rick or Morty, and a spinner to determine the maximum number of opponents. The location will be chosen
- randomly once the user input is complete
+ randomly once the user input is complete.
+ - Submit button triggers the game

@@ -29,13 +29,13 @@ header p {
 	flex-flow: row nowrap;
 }
 
-.menu {
+.controls {
 	width: 15%;
 	height: auto;
 	background: #CDCDCD;
 }
 
-.play-area {
+.info-area {
 	min-height: 
 	width: auto;
 }
@@ -53,4 +53,8 @@ header p {
 .the-world {
 	font-family: 'Luckiest Guy', cursive;
 	/*font-size: 32px;*/
+}
+
+.randomizer {
+	
 }

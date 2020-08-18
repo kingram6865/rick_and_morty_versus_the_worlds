@@ -132,14 +132,14 @@ cd
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Build HTML Skeleton | H | 2 hr |  |  |
-| Retrieve image data not in the API| L | 2 hr
-| Organize Layout (CSS) | H | 3 hr  | ||
+| Build HTML Skeleton | H | 2 hr | 46min |  |
+| Retrieve image data not in the API| L | 2 hr | 20min |
+| Organize Layout (CSS) | H | 3 hr  | 20min||
 | Organize user Input | M | 4 hrs|  |  |
-| Generate API Calls for game elements | H | 3 hrs|  |  |
+| Generate API Calls for game elements | H | 3 hrs| 7hrs |  |
 | Organize data placement for text data| H | 3 hrs | |
 | Organize data placement for image data| H | 3 hrs |  |
-| Create Algorithms for fight data      | H | 10 hrs |  |  |
+| Create Algorithms for fight data      | H | 15 hrs |  |  |
 | Total                             | H | 30 hrs|  |  |
 
 ## Code Snippet
@@ -151,4 +151,5 @@ Use this section to include a brief code snippet of functionality that you are p
 ```
 
 ## Change Log
- 
+ - There are too many choices for World (location) so the user interface is a radio selector to choose Rick or Morty, and a spinner to determine the maximum number of opponents. The location will be chosen
+ randomly once the user input is complete

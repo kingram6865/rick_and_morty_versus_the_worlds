@@ -65,6 +65,21 @@ function generateRandomCharacters(range){
 	return choices
 }
 
+function displayCharacters(charList, charDomain){
+	/*
+		Takes an array of numbers representing "id" values 
+		for character objects.
+
+		charDomain is the list of all characters
+	 */
+	
+	for (let contents of charList){
+		console.log(contents)
+	}
+
+
+}
+
 randomizer.addEventListener('click', ()=>{
 	alert("randomizer Ready!")
 })

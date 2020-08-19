@@ -5,14 +5,16 @@ body {
 
 header {
 	display: flex;
-	flex-flow: column nowrap;
+	/*flex-flow: column nowrap;*/
+	justify-content: center;
 	height: 400px;
 	width: auto;
 	/*max-height: 100%;*/
 	/*background-size: 100% 95%;*/
 	background-image: url("./images/rick_morty_header.jpg");
-	background-repeat: no-repeat;
-	/*background-size: contain;*/
+	/*background-repeat: no-repeat;*/
+	/*background-size: cover;*/
+	background-size: 100% 100%;
 	font-size: 4em;
 	color: white;
 }
@@ -42,17 +44,15 @@ header p {
 
 .r-and-m {
 	font-family: 'Bangers', cursive;
-	/*font-size: 32px;*/
 }
 
 .versus {
 	font-family: 'Permanent Marker', cursive;
-	/*font-size: 32px;*/
+	text-decoration: underline;
 }
 
 .the-world {
 	font-family: 'Luckiest Guy', cursive;
-	/*font-size: 32px;*/
 }
 
 .randomizer {

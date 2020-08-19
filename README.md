@@ -119,9 +119,9 @@ Sample JSON:
 |---|---| ---|
 |August 15-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 17   | Project Approval        | Complete
-|August 18   | Core Application Structure (HTML, CSS, etc.) | Incomplete
-|August 19   | JS Coding  | Incomplete
-|August 20   | MVP | Incomplete
+|August 18   | Core Application Structure (HTML, CSS, etc.) | Complete
+|August 19   | JS Coding, MVP completion  | Incomplete
+|August 20   | Presentation Prep | Incomplete
 |August 21   | Presentations | Incomplete
 
 ## Priority Matrix
@@ -134,12 +134,12 @@ cd
 | --- | :---: |  :---: | :---: | :---: |
 | Build HTML Skeleton | H | 2 hr | 46min |  |
 | Retrieve image data not in the API| L | 2 hr | 20min |
-| Organize Layout (CSS) | H | 3 hr  | 20min||
-| Organize user Input | M | 4 hrs|  |  |
-| Generate API Calls for game elements | H | 3 hrs| 7hrs |  |
-| Organize data placement for text data| H | 3 hrs | |
-| Organize data placement for image data| H | 3 hrs |  |
-| Create Algorithms for fight data      | H | 15 hrs |  |  |
+| Organize Layout (CSS) | H | 3 hr  | 30min||
+| Organize user Input | M | 4 hrs|  | 45min |
+| JS Coding | H | 7 hrs| 8hrs 26min | 19hrs 24min |
+| Organize data placement for text data| H | 3 hrs | 3hrs|
+| Organize data placement for image data| H | 3 hrs | 20min |
+| CSS Style Refinement      | H | 4hrs | 1hr |  |
 | Total                             | H | 30 hrs|  |  |
 
 ## Code Snippet
@@ -154,3 +154,4 @@ Use this section to include a brief code snippet of functionality that you are p
  - There are too many choices for World (location) so the user interface is a radio selector to choose Rick or Morty, and a spinner to determine the maximum number of opponents. The location will be chosen
  randomly once the user input is complete.
  - Submit button triggers the game
+ - Stopped working on a game and scaled back to a simple information display app.

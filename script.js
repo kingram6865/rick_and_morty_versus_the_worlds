@@ -8,14 +8,8 @@ const controls = document.querySelector('.controls')
 const characterDropDown = document.createElement('select')
 const destination = document.querySelector('.info-area')
 const characterDropDownLabel = document.createElement('label')
-characterDropDown.id = "character-list"
-characterDropDownLabel.for = characterDropDown.id
-console.log(characterDropDownLabel)//.for = characterDropDown.name
-const firstOption = document.createElement('option')
-firstOption.value = "x"
-// firstOption.disabled = true
-firstOption.textContent = "Select a Name"
-characterDropDown.append(firstOption)
+const randomizer = document.createElement('button')
+
 
 async function populatePeople(url){ // Retrieve the data from the API
 	try {
@@ -49,7 +43,15 @@ async function populatePeople(url){ // Retrieve the data from the API
 
 async function doIt() {
 	await populatePeople(allCharacters)
-
+	characterDropDown.id = "character-list"
+	characterDropDownLabel.for = characterDropDown.id
+	console.log(characterDropDownLabel)//.for = characterDropDown.name
+	const firstOption = document.createElement('option')
+	firstOption.value = "x"
+	firstOption.textContent = "Select a Name"
+	characterDropDown.append(firstOption)
+	randomizer.textContent = "Show a Random Character"
+	controls.append(randomizer)
 	// console.log(universePeople)
 	// console.log(`Number of people in Rick and Morty Multiverse: ${universePeople.length}`)
 	// let rndom = await Math.floor(Math.random() * 52)
@@ -62,11 +64,21 @@ doIt()
 characterDropDown.addEventListener('change', ()=>{
 	// destination.remove(destination.lastChild)
 	// console.log(characterDropDown.options)
+	destination.innerHTML = ""
 	characterDropDown.options[0].disabled = true // Option 0 is a placeholder. Causes error if selected
 	// console.log(`[Listener Report] Dropdown Selector Value: ${characterDropDown.value}`)
 	let data = getPerson(characterDropDown.value)
 	displayInfo(data)
 })
+
+randomizer.addEventListener('click', ()=>{
+	destination.innerHTML = ""
+	displayInfo(selectRandomCharacter())
+})
+
+function selectRandomCharacter(){
+	return getPerson(Math.floor(Math.random() * universePeople.length))
+}
 
 async function getCharacterDetail(id){
 	let response = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
@@ -99,16 +111,6 @@ function displayInfo(character){
 	console.log(destination)
 	image.src = character.image
 	dossier.className = "dossier"
-	for (let j = 0; j < character.episode.length; j++){
-		let option = document.createElement('option')
-		// The option value should really be the value of the episode number
-		// so that a listener on this list will trigger an API call for that
-		// episode data. For now that will be a "Post MVP" option.
-
-		option.value = j
-		option.textContent = character.episode[j]
-		appearanceList.append(option)
-	}
 
 	link.href = character.location.url
 	link.textContent = character.location.name
@@ -135,8 +137,22 @@ function displayInfo(character){
 	dossier.append(link)
 	dossier.append(p[5])
 	dossier.append(p[6])
-	dossier.append(appearanceList)
-	// destination.remove(destination.lastChild)
+	
+	if (character.episode.length > 1){
+		for (let j = 0; j < character.episode.length; j++){
+			let option = document.createElement('option')
+			// The option value should really be the value of the episode number
+			// so that a listener on this list will trigger an API call for that
+			// episode data. For now that will be a "Post MVP" option.
+	
+			option.value = j
+			option.textContent = character.episode[j]
+			appearanceList.append(option)
+			dossier.append(appearanceList)
+		}
+	} else {
+		dossier.append(character.episode[0])	
+	}
 
 	destination.append(image)
 	destination.append(dossier)

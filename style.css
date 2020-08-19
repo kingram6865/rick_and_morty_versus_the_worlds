@@ -36,6 +36,10 @@ header p {
 	align-content: center;
 }
 
+section {
+	margin: 10px 0px;
+}
+
 .content {
 	height: auto;
 	width: auto;
@@ -44,9 +48,15 @@ header p {
 }
 
 .controls {
+	display: flex;
+	flex-flow: column nowrap;
 	width: auto;
 	height: auto;
 	/*background: #CDCDCD;*/
+}
+
+.controls button {
+	margin: 2em 0em;
 }
 
 .info-area {

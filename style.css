@@ -1,3 +1,15 @@
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
 body {
 	display: flex;
 	flex-flow: column nowrap
@@ -7,7 +19,7 @@ header {
 	display: flex;
 	/*flex-flow: column nowrap;*/
 	justify-content: center;
-	height: 400px;
+	height: 300px;
 	width: auto;
 	/*max-height: 100%;*/
 	/*background-size: 100% 95%;*/
@@ -34,7 +46,7 @@ header p {
 .controls {
 	width: auto;
 	height: auto;
-	background: #CDCDCD;
+	/*background: #CDCDCD;*/
 }
 
 .info-area {
@@ -57,14 +69,33 @@ header p {
 	font-family: 'Luckiest Guy', cursive;
 }
 
-.randomizer {
-	
-}
-
 .info-area img {
 	justify-content: flex-start;
 }
 
 .info-area div {
+	margin: 0px 10px;
+}
+
+.warning {
+	padding: 3px;
+	border: 5px solid red;
+	-webkit-animation: blink normal 2s infinite ease-in-out;
+}
+
+.subject-identifier {
+	font-family: 'Bangers', cursive;
+}
+
+.subject-name {
 
 }
+
+.subject-status {
+
+}
+
+.subject-species {
+
+}
+

@@ -8,8 +8,14 @@ const controls = document.querySelector('.controls')
 const characterDropDown = document.createElement('select')
 const destination = document.querySelector('.info-area')
 const characterDropDownLabel = document.createElement('label')
-characterDropDown.name = "character-list"
-characterDropDownLabel.for = characterDropDown.name
+characterDropDown.id = "character-list"
+characterDropDownLabel.for = characterDropDown.id
+console.log(characterDropDownLabel)//.for = characterDropDown.name
+const firstOption = document.createElement('option')
+firstOption.value = "x"
+// firstOption.disabled = true
+firstOption.textContent = "Select a Name"
+characterDropDown.append(firstOption)
 
 async function populatePeople(url){ // Retrieve the data from the API
 	try {
@@ -55,7 +61,9 @@ doIt()
 
 characterDropDown.addEventListener('change', ()=>{
 	// destination.remove(destination.lastChild)
-	console.log(`[Listener Report] Dropdown Selector Value: ${characterDropDown.value}`)
+	// console.log(characterDropDown.options)
+	characterDropDown.options[0].disabled = true // Option 0 is a placeholder. Causes error if selected
+	// console.log(`[Listener Report] Dropdown Selector Value: ${characterDropDown.value}`)
 	let data = getPerson(characterDropDown.value)
 	displayInfo(data)
 })
@@ -66,7 +74,7 @@ async function getCharacterDetail(id){
 }
 
 function getPerson(id){
-	console.log(universePeople[id].id, universePeople[id].name, universePeople[id].episode.length)
+	// console.log(universePeople[id].id, universePeople[id].name, universePeople[id].episode.length)
 	return universePeople[id]
 }
 
@@ -75,27 +83,50 @@ function displayInfo(character){
 	let image = document.createElement('img')
 	let dossier = document.createElement('div')
 	let link = document.createElement('a')
+	let appearanceList = document.createElement('select')
+	let index = character.location.url.split("/").length-1
+	let locationNo = parseInt(character.location.url.split("/")[index])
+	let flag = ['Rick Sanchez', 'Morty Smith']
+
 	for (let i = 1; i < 7; i++){
 		p[i] = document.createElement('p')
 		/*
 			p[i].textContent could also be filled here using Object.keys(character)
 			but it will take a little more work to determine how to assign everything 
-			in a particular order. For MVP DRY will be hard to maintain
+			in a particular order. For MVP, DRY will be hard to maintain.
 		 */
 	}
 	console.log(destination)
-	image
 	image.src = character.image
+	dossier.className = "dossier"
+	for (let j = 0; j < character.episode.length; j++){
+		let option = document.createElement('option')
+		// The option value should really be the value of the episode number
+		// so that a listener on this list will trigger an API call for that
+		// episode data. For now that will be a "Post MVP" option.
+
+		option.value = j
+		option.textContent = character.episode[j]
+		appearanceList.append(option)
+	}
 
 	link.href = character.location.url
 	link.textContent = character.location.name
 	link.target = "_blank"
 
-	p[1].textContent = `Character #: ${character.id}`
+	p[1].textContent = `Dossier ID: ${character.id}`
+	p[1].className = 'subject-identifier'
 	p[2].textContent = `Name: ${character.name}`
+	p[2].className = "subject-name"	
+	if (flag.includes(character.name) && locationNo === 20){
+		p[2].classList.add('warning')
+	}
+	
 	p[3].textContent = `Status: ${character.status}`
+	p[3].className = "subject-status"
 	p[4].textContent = `Location: `
 	p[5].textContent = `Species: ${character.species}`
+	p[5].className = "subject-species"
 	p[6].textContent = `Appearance(s): ${character.episode.length}`
 	dossier.append(p[1])
 	dossier.append(p[2])
@@ -104,13 +135,12 @@ function displayInfo(character){
 	dossier.append(link)
 	dossier.append(p[5])
 	dossier.append(p[6])
+	dossier.append(appearanceList)
 	// destination.remove(destination.lastChild)
 
 	destination.append(image)
 	destination.append(dossier)
 }
-
-
 
 // async function populateLocations(info){
 // 	let allLocations = []

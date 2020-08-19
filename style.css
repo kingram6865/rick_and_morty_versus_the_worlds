@@ -32,13 +32,15 @@ header p {
 }
 
 .controls {
-	width: 15%;
+	width: auto;
 	height: auto;
 	background: #CDCDCD;
 }
 
 .info-area {
-	min-height: 
+	display: flex;
+	flex-flow: row nowrap;
+	/*min-height: */
 	width: auto;
 }
 
@@ -57,4 +59,12 @@ header p {
 
 .randomizer {
 	
+}
+
+.info-area img {
+	justify-content: flex-start;
+}
+
+.info-area div {
+
 }

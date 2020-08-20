@@ -37,6 +37,7 @@ header p {
 }
 
 section {
+	display: flex;
 	margin: 10px 0px;
 }
 
@@ -52,11 +53,19 @@ section {
 	flex-flow: column nowrap;
 	width: auto;
 	height: auto;
+	margin: 0em 2em 0em 0em;
+	align-items: center;
 	/*background: #CDCDCD;*/
+}
+
+.controls label {
+	background: #FDF904;
 }
 
 .controls button {
 	margin: 2em 0em;
+	width: 33%;
+	justify-content: center;
 }
 
 .info-area {
@@ -109,3 +118,43 @@ section {
 
 }
 
+/* 
+	Media query adjustments
+
+
+
+
+ */
+
+/*@media screen and (max-width: 200px) {
+	.content {
+		flex-flow: column wrap;
+	}
+}
+*/
+
+@media screen and (max-width: 700px) {
+	.content {
+		flex-flow: column wrap;
+	}
+
+	.info-area {
+		flex-flow: column wrap;
+	}
+
+}
+
+@media screen and (max-width: 300px) {
+	header {
+		height: 100%;
+		width: 100%;
+	}
+
+	.content {
+		flex-flow: column wrap;
+	}
+
+	.info-area {
+		flex-flow: column wrap;
+	}
+}

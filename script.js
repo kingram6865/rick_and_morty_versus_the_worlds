@@ -10,32 +10,33 @@ const destination = document.querySelector('.info-area')
 const characterDropDownLabel = document.createElement('label')
 const randomizer = document.createElement('button')
 
+characterDropDown.id = "character-list"
+characterDropDownLabel.for = characterDropDown.id
+// console.log(characterDropDownLabel)//.for = characterDropDown.name
+const firstOption = document.createElement('option')
+firstOption.value = "x"
+firstOption.textContent = "Select a Name"
+characterDropDown.append(firstOption)
+randomizer.textContent = "Show a Random Character"
+controls.append(characterDropDown)
+controls.append(randomizer)
+
 
 async function populatePeople(url){ // Retrieve the data from the API
 	try {
 		let i = 0
 		while (url){
 			let {data} = await axios.get(url)
-			// console.log(data.info.next)
-			// console.log(data.results)				
 			for (let content of data.results){
-				// console.log(content)					
 					let item = document.createElement('option')
 					item.value = i
 					item.innerText = content.name
 					characterDropDown.append(item)
-					// section.append(obj.name)
-				// 	// let image =document.createElement('img')
-				// 	// image.src = obj.image
-				// 	// section.append(image)
-				// })
-				// console.log(data)
-				i++
+					i++
 			}
 			universePeople.push(...data.results)
 			url = data.info.next
 		}
-		controls.append(characterDropDown)
 	} catch (error) {
 		console.log(`Error: ${error}`)
 	} 
@@ -43,15 +44,6 @@ async function populatePeople(url){ // Retrieve the data from the API
 
 async function doIt() {
 	await populatePeople(allCharacters)
-	characterDropDown.id = "character-list"
-	characterDropDownLabel.for = characterDropDown.id
-	console.log(characterDropDownLabel)//.for = characterDropDown.name
-	const firstOption = document.createElement('option')
-	firstOption.value = "x"
-	firstOption.textContent = "Select a Name"
-	characterDropDown.append(firstOption)
-	randomizer.textContent = "Show a Random Character"
-	controls.append(randomizer)
 	// console.log(universePeople)
 	// console.log(`Number of people in Rick and Morty Multiverse: ${universePeople.length}`)
 	// let rndom = await Math.floor(Math.random() * 52)
@@ -82,7 +74,7 @@ function selectRandomCharacter(){
 
 async function getCharacterDetail(id){
 	let response = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
-	console.log(response) 
+	// console.log(response) 
 }
 
 function getPerson(id){
@@ -92,6 +84,8 @@ function getPerson(id){
 
 function displayInfo(character){
 	let p = []
+	let t = []
+	let s = []
 	let image = document.createElement('img')
 	let dossier = document.createElement('div')
 	let link = document.createElement('a')
@@ -99,16 +93,8 @@ function displayInfo(character){
 	let index = character.location.url.split("/").length-1
 	let locationNo = parseInt(character.location.url.split("/")[index])
 	let flag = ['Rick Sanchez', 'Morty Smith']
+	let dossierContents = document.createElement('table')
 
-	for (let i = 1; i < 7; i++){
-		p[i] = document.createElement('p')
-		/*
-			p[i].textContent could also be filled here using Object.keys(character)
-			but it will take a little more work to determine how to assign everything 
-			in a particular order. For MVP, DRY will be hard to maintain.
-		 */
-	}
-	console.log(destination)
 	image.src = character.image
 	dossier.className = "dossier"
 
@@ -116,8 +102,116 @@ function displayInfo(character){
 	link.textContent = character.location.name
 	link.target = "_blank"
 
+// console.log(link)
+
+	for (let i = 1; i < 7; i++){
+		let c1 = document.createElement('td')
+		let c2 = document.createElement('td')
+		let s1 = document.createElement('span')
+		s1.className = "data-label"
+		let s2 = document.createElement('span')
+		s2.className = "data-info"
+		p[i] = document.createElement('p')
+		s[i] = document.createElement('span')
+		// t[i] = document.createElement('tr')
+
+		// switch(i){
+		// 	case 1:
+		// 		c1.textContent = "Dossier ID:"
+		// 		c2.textContent = character.id
+		// 		c1.className = 'subject-identifier'
+		// 		t[i].append(c1)
+		// 		t[i].append(c2)
+		// 		dossierContents.append(t[i])
+		// 		// console.log(t[i])
+		// 		break;
+		// 	case 2:
+		// 		c1.textContent = "Name: "
+		// 		c2.innerHTML = character.name
+		// 		c1.className = "subject-name"
+		// 		if (flag.includes(character.name) && locationNo === 20){
+		// 			c2.classList.add('warning')
+		// 		}
+		// 		t[i].append(c1)
+		// 		t[i].append(c2)
+		// 		dossierContents.append(t[i])
+		// 		// console.log(t[i])
+		// 		break;
+		// 	case 3:
+		// 		c1.textContent = "Status: "
+		// 		c2.textContent = character.status
+		// 		c1.className = "subject-status"
+		// 		t[i].append(c1)
+		// 		t[i].append(c2)
+		// 		dossierContents.append(t[i])
+		// 		// console.log(t[i])
+		// 		break;
+		// 	case 4:
+		// 		c1.textContent = "Location: "
+		// 		c1.className = "subject-lkl"
+		// 		console.log(`Case 4 [144]: ${link}`)
+		// 		c2.append(link)
+		// 		// c2.innerHTML = link
+		// 		t[i].append(c1)
+		// 		t[i].append(c2)
+		// 		dossierContents.append(t[i])
+		// 		console.log(`Case 4 [153]: ${t[i].cells}`)
+		// 		break;
+		// 	case 5:
+		// 		c1.textContent = "Species: "
+		// 		c2.textContent = character.species
+		// 		c1.className = "subject-species"
+		// 		t[i].append(c1)
+		// 		t[i].append(c2)
+		// 		dossierContents.append(t[i])
+		// 		// console.log(t[i])
+		// 		break;
+		// 	case 6:
+		// 		// let c3 = document.createElement('td')
+		// 		c1.textContent = "Appearance(s)"
+		// 		c1.className = "subject-appearance"
+		// 		// c2.textContent = character.episode.length
+		// 		if (character.episode.length > 1){
+		// 			for (let j = 0; j < character.episode.length; j++){
+		// 				let option = document.createElement('option')
+		// 				// The option value should really be the value of the episode number
+		// 				// so that a listener on this list will trigger an API call for that
+		// 				// episode data. For now that will be a "Post MVP" option.
+				
+		// 				option.value = j
+		// 				option.textContent = character.episode[j]
+		// 				appearanceList.append(option)
+		// 				c2.append(appearanceList)
+		// 			}
+		// 		} else {
+		// 			c2.append(character.episode[0])
+		// 		}
+		// 			t[i].append(c1)
+		// 			t[i].append(c2)
+		// 			// t[i].append(c3)
+		// 			// console.log(t[i])
+		// 			dossierContents.append(t[i])
+		// 			break;
+		// }
+
+		/*
+			p[i].textContent could also be filled here using Object.keys(character)
+			but it will take a little more work to determine how to assign everything 
+			in a particular order. For MVP, DRY will be hard to maintain.
+		 */
+	}
+			// console.log(dossierContents)
+			// console.log(t)
+
+	// console.log(destination)
+
 	p[1].textContent = `Dossier ID: ${character.id}`
 	p[1].className = 'subject-identifier'
+	// s[1].textContent = "Dossier ID: "
+	// s[1].className = 'subject-identifier'
+	// p[1].append(s[1])
+	// p[1].append(character.id)
+
 	p[2].textContent = `Name: ${character.name}`
 	p[2].className = "subject-name"	
 	if (flag.includes(character.name) && locationNo === 20){
@@ -126,17 +220,17 @@ function displayInfo(character){
 	
 	p[3].textContent = `Status: ${character.status}`
 	p[3].className = "subject-status"
-	p[4].textContent = `Location: `
+	p[4].innerText = `Location: `
+	p[4].append(link)
 	p[5].textContent = `Species: ${character.species}`
 	p[5].className = "subject-species"
-	p[6].textContent = `Appearance(s): ${character.episode.length}`
+	p[6].textContent = `Appearance(s): (${character.episode.length}) `
 	dossier.append(p[1])
 	dossier.append(p[2])
 	dossier.append(p[3])
 	dossier.append(p[4])
-	dossier.append(link)
 	dossier.append(p[5])
-	dossier.append(p[6])
+	// dossier.append(p[6])
 	
 	if (character.episode.length > 1){
 		for (let j = 0; j < character.episode.length; j++){
@@ -148,14 +242,18 @@ function displayInfo(character){
 			option.value = j
 			option.textContent = character.episode[j]
 			appearanceList.append(option)
-			dossier.append(appearanceList)
+			p[6].append(appearanceList)
+			// dossier.append(appearanceList)
 		}
 	} else {
-		dossier.append(character.episode[0])	
+		// dossier.append(character.episode[0])	
+		p[6].append(character.episode[0])	
 	}
-
+	dossier.append(p[6])
+	// dossier.append(dossierContents)
 	destination.append(image)
 	destination.append(dossier)
+
 }
 
 // async function populateLocations(info){

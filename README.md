@@ -120,8 +120,8 @@ Sample JSON:
 |August 15-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 17   | Project Approval        | Complete
 |August 18   | Core Application Structure (HTML, CSS, etc.) | Complete
-|August 19   | JS Coding, MVP completion  | Incomplete
-|August 20   | Presentation Prep | Incomplete
+|August 19   | JS Coding, MVP completion  | Complete
+|August 20   | Presentation Prep | Complete
 |August 21   | Presentations | Incomplete
 
 ## Priority Matrix
@@ -132,14 +132,14 @@ cd
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Build HTML Skeleton | H | 2 hr | 46min |  |
-| Retrieve image data not in the API| L | 2 hr | 20min |
-| Organize Layout (CSS) | H | 3 hr  | 30min||
-| Organize user Input | M | 4 hrs|  | 45min |
-| JS Coding | H | 7 hrs| 8hrs 26min | 19hrs 24min |
-| Organize data placement for text data| H | 3 hrs | 3hrs|
-| Organize data placement for image data| H | 3 hrs | 20min |
-| CSS Style Refinement      | H | 4hrs | 1hr |  |
+| Build HTML Skeleton | H | 2 hr | 46min | 1hr |
+| Retrieve image data not in the API| L | 2 hr | 20min | 20min|
+| Organize Layout (CSS) | H | 3 hr  | 30min| 2hr|
+| Organize user Input | M | 4 hrs|  | 45min | 1hr 45min|
+| JS Coding | H | 7 hrs| 8hrs 26min | 19hrs 24min | 25 hrs|
+| Organize data placement for text data| H | 3 hrs | 3hrs| 3hrs|
+| Organize data placement for image data| H | 3 hrs | 20min | 30min|
+| CSS Style Refinement      | H | 4hrs | 1hr | 1hr 10min |
 | Total                             | H | 30 hrs|  |  |
 
 ## Code Snippet

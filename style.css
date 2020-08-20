@@ -59,12 +59,25 @@ section {
 }
 
 .controls label {
+	margin-top: 1em;
+	margin-bottom: 20px;
 	background: #FDF904;
+	font-weight: bold;
+	font-size: large;
+}
+
+.controls label.option {
+	margin-top: 2em;
+	background: #96FAD8;
+	font-weight: bold;
+	font-size: large;
 }
 
 .controls button {
 	margin: 2em 0em;
 	width: 33%;
+	box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
+  border: 1px solid orange;
 	justify-content: center;
 }
 
@@ -133,7 +146,7 @@ section {
 }
 */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
 	.content {
 		flex-flow: column wrap;
 	}

@@ -9,6 +9,7 @@ const characterDropDown = document.createElement('select')
 const destination = document.querySelector('.info-area')
 const characterDropDownLabel = document.createElement('label')
 const randomizer = document.createElement('button')
+const randomizerLabel = document.createElement('label')
 
 characterDropDown.id = "character-list"
 characterDropDownLabel.for = characterDropDown.id
@@ -17,8 +18,11 @@ const firstOption = document.createElement('option')
 firstOption.value = "x"
 firstOption.textContent = "Select a Name"
 characterDropDown.append(firstOption)
-randomizer.textContent = "Show a Random Character"
+randomizer.textContent = "Randomize!"
+randomizerLabel.className = 'option'
+randomizerLabel.textContent  = "OR Get a Random Character"
 controls.append(characterDropDown)
+controls.append(randomizerLabel)
 controls.append(randomizer)
 
 

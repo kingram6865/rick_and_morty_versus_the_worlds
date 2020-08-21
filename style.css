@@ -12,7 +12,8 @@
 
 body {
 	display: flex;
-	flex-flow: column nowrap
+	flex-flow: column nowrap;
+	background-image: url("./images/LogoPortal-ContourEmboss.svg");
 }
 
 header {
@@ -61,14 +62,17 @@ section {
 .controls label {
 	margin-top: 1em;
 	margin-bottom: 20px;
-	background: #FDF904;
+	/*background: #FDF904;*/
+	background: #FB6DC0;
 	font-weight: bold;
 	font-size: large;
+	border: 3px outset gray;
+	padding: 4px;
 }
 
 .controls label.option {
 	margin-top: 2em;
-	background: #96FAD8;
+	background: #FB6DC0;
 	font-weight: bold;
 	font-size: large;
 }
@@ -76,8 +80,9 @@ section {
 .controls button {
 	margin: 2em 0em;
 	width: 33%;
-	box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
-  border: 1px solid orange;
+	font-weight: bold;
+	box-shadow: -3px 3px #FB6DC0, -2px 2px #FB6DC0, -1px 1px #FB6DC0;
+  border: 1px solid #FB6DC0;
 	justify-content: center;
 }
 
@@ -88,17 +93,31 @@ section {
 	width: auto;
 }
 
+.dossier {
+	background: white;
+	padding: 0px 5px;
+}
+
 .r-and-m {
 	font-family: 'Bangers', cursive;
+	color: #FB6DC0;
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;	
 }
 
 .versus {
 	font-family: 'Permanent Marker', cursive;
-	text-decoration: underline;
+	/*text-decoration-color: white;*/
+	color: #01b8fe;
+/*	text-decoration: underline;*/
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;		
 }
 
 .the-world {
 	font-family: 'Luckiest Guy', cursive;
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;		
 }
 
 .info-area img {

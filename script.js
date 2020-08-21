@@ -208,6 +208,7 @@ function displayInfo(character){
 
 	p[1].textContent = `Dossier ID: ${character.id}`
 	p[1].className = 'subject-identifier'
+	p[1].classList.add("basic")
 	// s[1].textContent = "Dossier ID: "
 	// s[1].className = 'subject-identifier'
 	// p[1].append(s[1])
@@ -215,17 +216,28 @@ function displayInfo(character){
 
 	p[2].textContent = `Name: ${character.name}`
 	p[2].className = "subject-name"	
+	p[2].classList.add("basic")
+
 	if (flag.includes(character.name) && locationNo === 20){
-		p[2].classList.add('warning')
+		p[2].classList.toggle("basic")
+		p[2].classList.toggle('warning')
 	}
 	
 	p[3].textContent = `Status: ${character.status}`
 	p[3].className = "subject-status"
+	p[3].classList.add("basic")
+	
 	p[4].innerText = `Location: `
 	p[4].append(link)
+	p[4].classList.add("basic")
+
 	p[5].textContent = `Species: ${character.species}`
 	p[5].className = "subject-species"
+	p[5].classList.add("basic")
+
 	p[6].textContent = `Appearance(s): (${character.episode.length}) `
+	p[6].classList.add("basic")
+
 	dossier.append(p[1])
 	dossier.append(p[2])
 	dossier.append(p[3])

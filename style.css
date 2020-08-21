@@ -94,8 +94,14 @@ section {
 }
 
 .dossier {
-	background: white;
+	/*background: white;*/
 	padding: 0px 5px;
+}
+
+.dossier .basic  {
+	background: white;
+	border: 1px solid black;
+	padding: 5px 5px;	
 }
 
 .r-and-m {
@@ -139,7 +145,7 @@ section {
 }
 
 .subject-name {
-
+	background: white;
 }
 
 .subject-status {

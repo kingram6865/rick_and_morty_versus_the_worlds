@@ -58,11 +58,8 @@ async function doIt() {
 doIt()
 
 characterDropDown.addEventListener('change', ()=>{
-	// destination.remove(destination.lastChild)
-	// console.log(characterDropDown.options)
 	destination.innerHTML = ""
 	characterDropDown.options[0].disabled = true // Option 0 is a placeholder. Causes error if selected
-	// console.log(`[Listener Report] Dropdown Selector Value: ${characterDropDown.value}`)
 	let data = getPerson(characterDropDown.value)
 	displayInfo(data)
 })

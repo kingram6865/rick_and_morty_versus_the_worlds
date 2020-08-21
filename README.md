@@ -88,22 +88,17 @@ Sample JSON:
 
 #### MVP 
 
-- Access the Rick and Morty API
-- Display an image of Rick or Morty, based on user input
-- Allow user to pick a world.
-- Allow user to choose a randomly generated range of opponents from 1 to 5 from the selected world.
-- Avatars dodge mudballs after throwing mudball.
-- Display a title indicating the world where the battle is centered, which is any except earth
-- Display a picture of the winner.
+- Build app with HTML, CSS, JavaScript
+- Use Flexbox for styling
+- Access the Rick and Morty API using Axios
+- Create at least one media query breakpoint
 
 #### PostMVP  
-
-- Add Animations of mudballs and fighters moving and dodging
-- Add voice sounds, of Rick, Morty, Opponents
-- Have background change according to world visited
-- Have the speed of the dodging action adjusted based onn how "muddy" opponent is.
-- Allow user to "throw" mudballs
-- Use local storage to save win/loss record for characters
+- Create a drop down list of character names to select
+- Display an image of the selected character from the Rick and Morty universe.
+- Create a randomized version of character selection with a button
+- Add "warning" text animation if Rick or Morty
+- Use local storage to save a list of characters selected.
 
 #### Goals
 - Monday - Develop the skeleton. Create the HTML and align all of the objects that will contain data.
@@ -134,20 +129,25 @@ cd
 | --- | :---: |  :---: | :---: | :---: |
 | Build HTML Skeleton | H | 2 hr | 46min | 1hr |
 | Retrieve image data not in the API| L | 2 hr | 20min | 20min|
-| Organize Layout (CSS) | H | 3 hr  | 30min| 2hr|
-| Organize user Input | M | 4 hrs|  | 45min | 1hr 45min|
-| JS Coding | H | 7 hrs| 8hrs 26min | 19hrs 24min | 25 hrs|
+| Organize Layout (CSS) | H | 3 hr  | 30min| 2hrs|
+| Organize user Input | M | 4 hrs| 45min | 1hr|
+| JS Coding | H | 7 hrs| 24.5hrs | 25 hrs|
 | Organize data placement for text data| H | 3 hrs | 3hrs| 3hrs|
 | Organize data placement for image data| H | 3 hrs | 20min | 30min|
-| CSS Style Refinement      | H | 4hrs | 1hr | 1hr 10min |
-| Total                             | H | 30 hrs|  |  |
+| CSS Style Refinement      | H | 4hrs | 1hr | 1.5hrs |
+| Total                             | H | 30 hrs| 31hrs | 31hrs |
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-
+characterDropDown.addEventListener('change', ()=>{
+    destination.innerHTML = ""
+    characterDropDown.options[0].disabled = true // Option 0 is a placeholder. Causes error if selected
+    let data = getPerson(characterDropDown.value)
+    displayInfo(data)
+})
 ```
 
 ## Change Log
